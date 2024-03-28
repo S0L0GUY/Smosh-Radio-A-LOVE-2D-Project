@@ -1,0 +1,129 @@
+successfully imported: DebugLibrarry.lua
+
+--------------------------------
+successfully imported: LoveKitFunctionLibrarry.lua
+
+--------------------------------
+successfully imported: DateTimeFunctionLibrarry.lua
+
+--------------------------------
+set title of program to |Smosh Radio|
+
+--------------------------------
+discovered 4 files in audio/music folder
+
+--------------------------------
+get_file_path(audio/music, 1) returned audio/music/you_and_i.mp3
+
+--------------------------------
+get_file_path(audio/music, 2) returned audio/music/freedom.mp3
+
+--------------------------------
+get_file_path(audio/music, 3) returned audio/music/like_that.mp3
+
+--------------------------------
+get_file_path(audio/music, 4) returned audio/music/living_like_this.mp3
+
+--------------------------------
+audio/music: audio/music/you_and_i.mp3, audio/music/freedom.mp3, audio/music/like_that.mp3, audio/music/living_like_this.mp3
+
+--------------------------------
+sorted |song_names| to: audio/music/freedom.mp3, audio/music/like_that.mp3, audio/music/living_like_this.mp3, audio/music/you_and_i.mp3
+
+--------------------------------
+created |song_path| based on |song_names|
+
+--------------------------------
+discovered 4 files in images/cover_art folder
+
+--------------------------------
+get_file_path(images/cover_art, 1) returned images/cover_art/you_and_i.png
+
+--------------------------------
+get_file_path(images/cover_art, 2) returned images/cover_art/freedom.png
+
+--------------------------------
+get_file_path(images/cover_art, 3) returned images/cover_art/like_that.png
+
+--------------------------------
+get_file_path(images/cover_art, 4) returned images/cover_art/living_like_this.png
+
+--------------------------------
+images/cover_art: images/cover_art/you_and_i.png, images/cover_art/freedom.png, images/cover_art/like_that.png, images/cover_art/living_like_this.png, 
+
+--------------------------------
+sorted |image_path| to: images/cover_art/freedom.png, images/cover_art/like_that.png, images/cover_art/living_like_this.png, images/cover_art/you_and_i.png
+
+--------------------------------
+|image_path| and |song_path| have the same amount of items
+
+--------------------------------
+discovered 17 files in audio/host folder
+
+--------------------------------
+get_file_path(audio/host, 1) returned audio/host/GTA IV Burger Shot Commercial.wav
+
+--------------------------------
+get_file_path(audio/host, 2) returned audio/host/GTA SA Sprunk Commercial.mp3
+
+--------------------------------
+get_file_path(audio/host, 3) returned audio/host/JOIN THE MILITARY - TV COMMERCIAL (GTA 5).mp3
+
+--------------------------------
+get_file_path(audio/host, 4) returned audio/host/Grand Theft Auto V 'Jock Cranley & Sue Murry Campaign Ads' TRUE-HD QUALITY.mp3
+
+--------------------------------
+get_file_path(audio/host, 5) returned audio/host/GTA 5 - TV Commercials [CNT & Weazel TV].wav
+
+--------------------------------
+get_file_path(audio/host, 6) returned audio/host/Musicify ad 2.wav
+
+--------------------------------
+get_file_path(audio/host, 7) returned audio/host/Great toons.wav
+
+--------------------------------
+get_file_path(audio/host, 8) returned audio/host/new voice 1.wav
+
+--------------------------------
+get_file_path(audio/host, 9) returned audio/host/Cars extended warranty ad.wav
+
+--------------------------------
+get_file_path(audio/host, 10) returned audio/host/Go touch grass..wav
+
+--------------------------------
+get_file_path(audio/host, 11) returned audio/host/Hurt_ Good..wav
+
+--------------------------------
+get_file_path(audio/host, 12) returned audio/host/Smosh radio ad..wav
+
+--------------------------------
+get_file_path(audio/host, 13) returned audio/host/Need mor websites to visit_.wav
+
+--------------------------------
+get_file_path(audio/host, 14) returned audio/host/More great songs at musicify.com.wav
+
+--------------------------------
+get_file_path(audio/host, 15) returned audio/host/Stay tuned for more top artists.wav
+
+--------------------------------
+get_file_path(audio/host, 16) returned audio/host/Remember to visit musicify.wav
+
+--------------------------------
+get_file_path(audio/host, 17) returned audio/host/Stay tuned, More hits coming your way.wav
+
+--------------------------------
+audio/host: images/cover_art/you_and_i.png, images/cover_art/freedom.png, images/cover_art/like_that.png, images/cover_art/living_like_this.png, audio/host/GTA IV Burger Shot Commercial.wav, audio/host/GTA SA Sprunk Commercial.mp3, audio/host/JOIN THE MILITARY - TV COMMERCIAL (GTA 5).mp3, audio/host/Grand Theft Auto V 'Jock Cranley & Sue Murry Campaign Ads' TRUE-HD QUALITY.mp3, audio/host/GTA 5 - TV Commercials [CNT & Weazel TV].wav, audio/host/Musicify ad 2.wav, audio/host/Great toons.wav, audio/host/new voice 1.wav, audio/host/Cars extended warranty ad.wav, audio/host/Go touch grass..wav, audio/host/Hurt_ Good..wav, audio/host/Smosh radio ad..wav, audio/host/Need mor websites to visit_.wav, audio/host/More great songs at musicify.com.wav, audio/host/Stay tuned for more top artists.wav, audio/host/Remember to visit musicify.wav, audio/host/Stay tuned, More hits coming your way.wav, 
+
+--------------------------------
+Updated current song to: audio/music/living_like_this.mp3
+
+--------------------------------
+1 total songs played
+
+--------------------------------
+Updated current song to: audio/music/you_and_i.mp3
+
+--------------------------------
+2 total songs played
+
+--------------------------------
