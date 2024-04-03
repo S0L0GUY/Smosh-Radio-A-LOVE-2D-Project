@@ -42,6 +42,9 @@ update_current_image: Updates the displayed cover art based on the current audio
 
 play_next_audio: Plays the next audio track in the queue.
 
+# Adding New Songs
+To add new songs to Smosh Radio, add the .mp3 file to the '/audio/music' folder and add the corresponding image to the '/images/cover_art' folder. Make sure that they are both named the same.
+
 # Inspiration
 This project was inspired by a similar Smosh Radio project that I created in Scratch: https://scratch.mit.edu/projects/953615295/
 
