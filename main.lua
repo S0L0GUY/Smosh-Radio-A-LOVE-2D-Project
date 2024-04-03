@@ -1,16 +1,16 @@
 -- LÖVE 2D |Smosh Radio| simaler to https://scratch.mit.edu/projects/953615295/
 
 function love.load()
-    -- 3/16/2024 DEBUGLIBRARRY -----------------------
-    debug = require("DebugLibrarry") -- Imports the Debug function Librarry
+    -- 3/16/2024 DEBUGLIBRARY -----------------------
+    debug = require("DebugLibrary") -- Imports the Debug function Library
     debug.clear()
-    debug.log("successfully imported: DebugLibrarry.lua")
+    debug.log("successfully imported: DebugLibrary.lua")
     --------------------------------------------------
 
-    -- 3/15/2024 DATETIMEFUNCTIONLIBRARRY ------------
-    dateTime = require("DateTimeFunctionLibrarry") -- Imports the Date Time Function Librarry
+    -- 3/15/2024 DATETIMEFUNCTIONLIBRARY ------------
+    dateTime = require("DateTimeFunctionLibrary") -- Imports the Date Time Function Library
     dateTime.Start()
-    debug.log("successfully imported: DateTimeFunctionLibrarry.lua")
+    debug.log("successfully imported: DateTimeFunctionLibrary.lua")
     --------------------------------------------------
 
     love.window.setTitle("Smoah Radio") -- Names the window Spofify
@@ -29,8 +29,8 @@ function love.load()
     table.sort(song_names) -- Sorts the song name table
     debug.log("sorted |song_names| to: " .. table_to_string(song_names))
 
-    for i = 1, #song_names do -- Creats a table that holds the song paths
-        if type(song_names[i]) == "string" then -- Checks to make sur that song_names[i] is a string
+    for i = 1, #song_names do -- Creates a table that holds the song paths
+        if type(song_names[i]) == "string" then -- Checks to make sure that song_names[i] is a string
             if song_names[i] == "" then -- Checks if song_names[i] is an empty string
                 debug.log("ERROR: song_names[" .. i .. "] is an empty string")
             else
@@ -45,14 +45,14 @@ function love.load()
 
     final_text = ""
     image_path = {}
-    for i = 1, get_amount_of_files("images/cover_art") do -- Creaates a table that holds all of the song covers
+    for i = 1, get_amount_of_files("images/cover_art") do -- Creates a table that holds all of the song covers
         local filePath = get_file_path("images/cover_art", i)
         table.insert(image_path, filePath)
         final_text = final_text .. filePath .. ", "
     end
     debug.log("images/cover_art: " .. final_text)
 
-    table.sort(image_path) -- Sorts the table that holds all of the song covers alphbetically
+    table.sort(image_path) -- Sorts the table that holds all of the song covers alphabetically
     debug.log("sorted |image_path| to: " .. table_to_string(image_path))
 
     if #image_path == #song_path then -- Makes sure there is the same amount of items in the |image_path| table as the |song_path| table
@@ -70,7 +70,7 @@ function love.load()
     end
     debug.log("audio/host: " .. final_text)
 
-    -- Creates all of the variaables that are used to controll the current_song
+    -- Creates all of the variables that are used to control the current_song
     total_songs_played = 0
     current_song = {}
     current_song.ID = 0
@@ -85,20 +85,20 @@ end
 function table_to_string(table_name) -- Converts a table to a string
     final_string = ""
     for i = 1, #table_name do
-        if i ~= #table_name then -- Checks to see if this is the last valut in the table
+        if i ~= #table_name then -- Checks to see if this is the last value in the table
             final_string = final_string .. tostring(table_name[i]) .. ", "
         else
             final_string = final_string .. tostring(table_name[i])
         end
     end
-    return final_string -- Returnes the final string
+    return final_string -- Returns the final string
 end
 
-function get_file_path(directory_path, position) -- gets the file path of a file in its directory based on its position in the directory
+function get_file_path(directory_path, position) -- Gets the file path of a file in its directory based on its position in the directory
     local index = 1
 
     local files = {}
-    for file in io.popen('dir "'..directory_path..'" /b'):lines() do -- Cretes a temperarry table that ontains all of the files in the director_path directory
+    for file in io.popen('dir "'..directory_path..'" /b'):lines() do -- Creates a temporary table that contains all of the files in the director_path directory
         table.insert(files, file)
     end
 
@@ -126,7 +126,7 @@ function get_amount_of_files(directory_path) -- Gets the number of files that ar
     return #files
 end
 
-function table_contains(table, value) -- Checks if a table contains a certin value
+function table_contains(table, value) -- Checks if a table contains a certain value
     for _, v in ipairs(table) do
         if v == value then
             return true
