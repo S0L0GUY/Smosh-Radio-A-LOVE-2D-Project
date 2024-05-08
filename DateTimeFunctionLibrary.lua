@@ -1,31 +1,37 @@
 local dateTime = {}
 
 function dateTime.Start()
-    function dateTime.update_current_date() -- Updates the current time to the os's time
+    -- Updates the current time to the os's time
+    function dateTime.update_current_date()
         return os.date("*t")
     end
     
-    function dateTime.whole_date() -- prints the date as 11/11/24 format
+    -- prints the date as 11/11/24 format
+    function dateTime.whole_date()
         local currentDate = dateTime.update_current_date()
         return currentDate.month .. "/" .. currentDate.day .. "/" .. currentDate.year
     end
     
-    function dateTime.month() -- prints the current month
+    -- prints the current month
+    function dateTime.month()
         local currentDate = dateTime.update_current_date()
         return currentDate.month
     end
     
-    function dateTime.day() -- prints the current day
+    -- prints the current day
+    function dateTime.day() 
         local currentDate = dateTime.update_current_date()
         return currentDate.day
     end
     
-    function dateTime.year() -- prints the current year
+    -- prints the current year
+    function dateTime.year()
         local currentDate = dateTime.update_current_date()
         return currentDate.year
     end
     
-    function dateTime.minute() -- prints the current minute
+    -- prints the current minute
+    function dateTime.minute() 
         local currentDate = dateTime.update_current_date()
         if currentDate.min < 10 then
             return "0" .. tostring(currentDate.min)
@@ -34,21 +40,26 @@ function dateTime.Start()
         end
     end
     
-    function dateTime.hour() -- prints the current hour
+    -- prints the current hour
+    function dateTime.hour()
         local currentDate = dateTime.update_current_date()
-        if tonumber(currentDate.hour) > 12 then -- changes the time from a 24 hr clock to a 12 hr clock
+        -- changes the time from a 24 hr clock to a 12 hr clock
+        if tonumber(currentDate.hour) > 12 then
             return tonumber(currentDate.hour) - 12
         else
             return tonumber(currentDate.hour)
         end
     end
     
-    function dateTime.full_time() -- prints the hour and minute '3:45'
+    -- prints the hour and minute '3:45'
+    function dateTime.full_time()
         return tostring(dateTime.hour()) .. ":" .. tostring(dateTime.minute())
     end
     
-    function dateTime.am_pm() -- prints am/pm
-        if tonumber(dateTime.hour()) > 12 then -- checks if the hour is more than 12
+    -- prints am/pm
+    function dateTime.am_pm()
+        -- checks if the hour is more than 12
+        if tonumber(dateTime.hour()) > 12 then
             return "pm"
         else
             return "am"

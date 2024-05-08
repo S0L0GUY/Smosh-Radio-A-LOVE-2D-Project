@@ -20,7 +20,8 @@ function love.load()
     song_names = {}
     song_path = {}
     final_text = ""
-    for i = 1, get_amount_of_files("audio/music") do -- Creates a table that contains all of the song names
+    -- Creates a table that contains all of the song names
+    for i = 1, get_amount_of_files("audio/music") do
         local filePath = get_file_path("audio/music", i)
         table.insert(song_names, filePath)
     end
@@ -29,9 +30,12 @@ function love.load()
     table.sort(song_names) -- Sorts the song name table
     debug.log("sorted |song_names| to: " .. table_to_string(song_names))
 
-    for i = 1, #song_names do -- Creates a table that holds the song paths
-        if type(song_names[i]) == "string" then -- Checks to make sure that song_names[i] is a string
-            if song_names[i] == "" then -- Checks if song_names[i] is an empty string
+    -- Creates a table that holds the song paths
+    for i = 1, #song_names do
+        -- Checks to make sure that song_names[i] is a string
+        if type(song_names[i]) == "string" then
+            -- Checks if song_names[i] is an empty string
+            if song_names[i] == "" then
                 debug.log("ERROR: song_names[" .. i .. "] is an empty string")
             else
                 source = love.audio.newSource(song_names[i], "static")
@@ -45,17 +49,20 @@ function love.load()
 
     final_text = ""
     image_path = {}
-    for i = 1, get_amount_of_files("images/cover_art") do -- Creates a table that holds all of the song covers
+    -- Creates a table that holds all of the song covers
+    for i = 1, get_amount_of_files("images/cover_art") do
         local filePath = get_file_path("images/cover_art", i)
         table.insert(image_path, filePath)
         final_text = final_text .. filePath .. ", "
     end
     debug.log("images/cover_art: " .. final_text)
 
-    table.sort(image_path) -- Sorts the table that holds all of the song covers alphabetically
+    -- Sorts the table that holds all of the song covers alphabetically
+    table.sort(image_path)
     debug.log("sorted |image_path| to: " .. table_to_string(image_path))
 
-    if #image_path == #song_path then -- Makes sure there is the same amount of items in the |image_path| table as the |song_path| table
+    -- Makes sure there is the same amount of items in the |image_path| table as the |song_path| table
+    if #image_path == #song_path then
         debug.log("|image_path| and |song_path| have the same amount of items")
     else
         debug.log("ERROR: |image_path| and |song_path| do not have the same amount of files")
@@ -63,7 +70,8 @@ function love.load()
 
     queue = {}
     ad = {}
-    for i = 1, get_amount_of_files("audio/host") do -- Creates a table for all of the audio that the host/ad's say
+    -- Creates a table for all of the audio that the host/ad's say
+    for i = 1, get_amount_of_files("audio/host") do
         local filePath = get_file_path("audio/host", i)
         table.insert(ad, love.audio.newSource(filePath, "static"))
         final_text = final_text .. filePath .. ", "
@@ -82,7 +90,8 @@ function love.load()
 end
 ------------------------------------------------------------COUSTOM FUNCTIONS--------------------------
 
-function table_to_string(table_name) -- Converts a table to a string
+-- Converts a table to a string
+function table_to_string(table_name)
     final_string = ""
     for i = 1, #table_name do
         if i ~= #table_name then -- Checks to see if this is the last value in the table
@@ -94,15 +103,18 @@ function table_to_string(table_name) -- Converts a table to a string
     return final_string -- Returns the final string
 end
 
-function get_file_path(directory_path, position) -- Gets the file path of a file in its directory based on its position in the directory
+-- Gets the file path of a file in its directory based on its position in the directory
+function get_file_path(directory_path, position)
     local index = 1
 
     local files = {}
-    for file in io.popen('dir "'..directory_path..'" /b'):lines() do -- Creates a temporary table that contains all of the files in the director_path directory
+    -- Creates a temporary table that contains all of the files in the director_path directory
+    for file in io.popen('dir "'..directory_path..'" /b'):lines() do
         table.insert(files, file)
     end
 
-    for file in io.popen('dir "'..directory_path..'" /b'):lines() do -- Looks for the file position
+    -- Looks for the file position
+    for file in io.popen('dir "'..directory_path..'" /b'):lines() do
         if index == position then
             debug.log("get_file_path(" .. directory_path .. ", " .. position .. ") returned " .. directory_path .. "/" .. files[index])
             return tostring(directory_path .. "/" .. files[index])
@@ -113,11 +125,13 @@ function get_file_path(directory_path, position) -- Gets the file path of a file
     return nil
 end
 
-function get_amount_of_files(directory_path) -- Gets the number of files that are in a directory
+-- Gets the number of files that are in a directory
+function get_amount_of_files(directory_path)
     local files = {}
     local index = 1
 
-    for file in io.popen('dir "'..directory_path..'" /b'):lines() do -- Repeats for the amount of files that are in the directory
+    -- Repeats for the amount of files that are in the directory
+    for file in io.popen('dir "'..directory_path..'" /b'):lines() do
         files[index] = directory_path .. "/" .. file
         index = index + 1
     end
@@ -126,7 +140,8 @@ function get_amount_of_files(directory_path) -- Gets the number of files that ar
     return #files
 end
 
-function table_contains(table, value) -- Checks if a table contains a certain value
+-- Checks if a table contains a certain value
+function table_contains(table, value)
     for _, v in ipairs(table) do
         if v == value then
             return true
@@ -158,7 +173,8 @@ function update_current_song()
     debug.log(total_songs_played .. " total songs played")
 end
 
-function update_current_image() -- Updates the current image
+-- Updates the current image
+function update_current_image()
     -- Load appropriate cover art based on whether ad is playing or not
     if is_ad_playing then
         image = love.graphics.newImage("images/ad/smosh_ad's.png")
@@ -174,7 +190,8 @@ function update_current_image() -- Updates the current image
     y = (screenHeight - scaledHeight) / 2
 end
 
-function play_next_audio() -- Plays the next audio that is in the queue table
+-- Plays the next audio that is in the queue table
+function play_next_audio()
     if #queue > 0 then
         local current_track = table.remove(queue, 1)
         love.timer.sleep(math.random(1.1, 2.1))
@@ -192,7 +209,8 @@ function play_next_audio() -- Plays the next audio that is in the queue table
 end
 ---------------------------------------------SYSTEM FUNCTIONS------------------------------------------
 
-function love.draw() -- Draws the scene
+-- Draws the scene
+function love.draw()
     update_current_image() -- Updates the current image
     love.graphics.draw(love.graphics.newImage("images/background/background.png"), 0, 0, 0, 4, 4) -- Creates the background
 
@@ -207,7 +225,8 @@ end
 function love.update(dt)
     dateTime.update_current_date() -- Updates the current time
 
-    if current_song.path and not current_song.path:isPlaying() then -- Changes the audio if the song is over
+    -- Changes the audio if the song is over
+    if current_song.path and not current_song.path:isPlaying() then
         play_next_audio()
     end
 end
