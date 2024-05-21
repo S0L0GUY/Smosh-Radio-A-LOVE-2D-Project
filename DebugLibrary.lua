@@ -1,9 +1,9 @@
 local M = {}
 
-function M.log(message)
+function M.log(type, message)
     -- Writes to |debug_log.txt|
     local file = io.open("debug_log.txt", "a") -- Open log file in append mode
-    file:write(message .. "\n") -- Write message to log file
+    file:write(tostring(type) .. ":" .. message .. "\n") -- Write message to log file
     file:write("" .. "\n") -- Makes a blank space at the bottom of the line
     file:write("--------------------------------" .. "\n") -- Creates the bottom divider
     file:close() -- Closes log file
@@ -12,7 +12,6 @@ function M.log(message)
     print(message)
     print("--------------------------------")
 end
-
 
 function M.clear()
     -- Clears the file |debug_log.txt|

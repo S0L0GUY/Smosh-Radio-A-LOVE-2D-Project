@@ -4,17 +4,17 @@ function love.load()
     -- 3/16/2024 DEBUGLIBRARY -----------------------
     debug = require("DebugLibrary") -- Imports the Debug function Library
     debug.clear()
-    debug.log("successfully imported: DebugLibrary.lua")
+    debug.log("IMPORT", "successfully imported: DebugLibrary.lua")
     --------------------------------------------------
 
     -- 3/15/2024 DATETIMEFUNCTIONLIBRARY ------------
     dateTime = require("DateTimeFunctionLibrary") -- Imports the Date Time Function Library
     dateTime.Start()
-    debug.log("successfully imported: DateTimeFunctionLibrary.lua")
+    debug.log("IMPORT", "successfully imported: DateTimeFunctionLibrary.lua")
     --------------------------------------------------
 
     love.window.setTitle("Smoah Radio") -- Names the window Spofify
-    debug.log("set title of program to |Smosh Radio|")
+    debug.log("IMPORT", "set title of program to |Smosh Radio|")
 
     old_song_id = 0
     song_names = {}
@@ -25,10 +25,10 @@ function love.load()
         local filePath = get_file_path("audio/music", i)
         table.insert(song_names, filePath)
     end
-    debug.log("audio/music: " .. table_to_string(song_names))
+    debug.log("SYSTEM", "audio/music: " .. table_to_string(song_names))
     
     table.sort(song_names) -- Sorts the song name table
-    debug.log("sorted |song_names| to: " .. table_to_string(song_names))
+    debug.log("SYSTEM", "sorted |song_names| to: " .. table_to_string(song_names))
 
     -- Creates a table that holds the song paths
     for i = 1, #song_names do
@@ -36,16 +36,16 @@ function love.load()
         if type(song_names[i]) == "string" then
             -- Checks if song_names[i] is an empty string
             if song_names[i] == "" then
-                debug.log("ERROR: song_names[" .. i .. "] is an empty string")
+                debug.log("ERROR", "song_names[" .. i .. "] is an empty string")
             else
                 source = love.audio.newSource(song_names[i], "static")
                 table.insert(song_path, source)
             end
         else
-            debug.log("ERROR: song_names[" .. i .. "]" .. "is not a string")
+            debug.log("ERROR", "song_names[" .. i .. "]" .. "is not a string")
         end
     end
-    debug.log("created |song_path| based on |song_names|")
+    debug.log("SYSTEM", "created |song_path| based on |song_names|")
 
     final_text = ""
     image_path = {}
@@ -55,17 +55,17 @@ function love.load()
         table.insert(image_path, filePath)
         final_text = final_text .. filePath .. ", "
     end
-    debug.log("images/cover_art: " .. final_text)
+    debug.log("SYSTEM", "images/cover_art: " .. final_text)
 
     -- Sorts the table that holds all of the song covers alphabetically
     table.sort(image_path)
-    debug.log("sorted |image_path| to: " .. table_to_string(image_path))
+    debug.log("SYSTEM", "sorted |image_path| to: " .. table_to_string(image_path))
 
     -- Makes sure there is the same amount of items in the |image_path| table as the |song_path| table
     if #image_path == #song_path then
-        debug.log("|image_path| and |song_path| have the same amount of items")
+        debug.log("SYSTEM", "|image_path| and |song_path| have the same amount of items")
     else
-        debug.log("ERROR: |image_path| and |song_path| do not have the same amount of files")
+        debug.log("SYSTEM", "ERROR: |image_path| and |song_path| do not have the same amount of files")
     end
 
     queue = {}
@@ -76,7 +76,7 @@ function love.load()
         table.insert(ad, love.audio.newSource(filePath, "static"))
         final_text = final_text .. filePath .. ", "
     end
-    debug.log("audio/host: " .. final_text)
+    debug.log("SYSTEM", "audio/host: " .. final_text)
 
     -- Creates all of the variables that are used to control the current_song
     total_songs_played = 0
@@ -116,7 +116,7 @@ function get_file_path(directory_path, position)
     -- Looks for the file position
     for file in io.popen('dir "'..directory_path..'" /b'):lines() do
         if index == position then
-            debug.log("get_file_path(" .. directory_path .. ", " .. position .. ") returned " .. directory_path .. "/" .. files[index])
+            debug.log("FUNCTION", "get_file_path(" .. directory_path .. ", " .. position .. ") returned " .. directory_path .. "/" .. files[index])
             return tostring(directory_path .. "/" .. files[index])
         end
         index = index + 1
@@ -136,7 +136,7 @@ function get_amount_of_files(directory_path)
         index = index + 1
     end
 
-    debug.log("discovered " .. tostring(#files) .. " files in " .. tostring(directory_path) .. " folder")
+    debug.log("FUNCTION", "discovered " .. tostring(#files) .. " files in " .. tostring(directory_path) .. " folder")
     return #files
 end
 
@@ -168,9 +168,9 @@ function update_current_song()
     -- Add the selected song to the queue
     table.insert(queue, current_song.path)
 
-    debug.log("Updated current song to: " .. current_song.name)
+    debug.log("FUNCTION", "Updated current song to: " .. current_song.name)
     total_songs_played = total_songs_played + 1
-    debug.log(total_songs_played .. " total songs played")
+    debug.log("SYSTEM", total_songs_played .. " total songs played")
 end
 
 -- Updates the current image
