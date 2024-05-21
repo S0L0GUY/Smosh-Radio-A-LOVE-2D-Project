@@ -1,7 +1,7 @@
 local M = {}
 
 function M.log(message)
-    -- writes to debug_log.txt
+    -- Writes to |debug_log.txt|
     local file = io.open("debug_log.txt", "a") -- Open log file in append mode
     file:write(message .. "\n") -- Write message to log file
     file:write("" .. "\n") -- Makes a blank space at the bottom of the line
@@ -13,7 +13,9 @@ function M.log(message)
     print("--------------------------------")
 end
 
+
 function M.clear()
+    -- Clears the file |debug_log.txt|
     local file = io.open("debug_log.txt", "w") -- Open file in write mode
     if file then
         file:write("") -- Writes an empty string to effectively clear the file
