@@ -1,7 +1,7 @@
 -- LÖVE 2D |Smosh Radio| simaler to https://scratch.mit.edu/projects/953615295/
 
 function love.load()
-    -- 3/16/2024 DEBUGLIBRARY -----------------------
+    -- 5/21/2024 DEBUGLIBRARY -----------------------
     debug = require("DebugLibrary") -- Imports the Debug function Library
     debug.clear()
     debug.log("IMPORT", "successfully imported: DebugLibrary.lua")
